@@ -33,8 +33,11 @@ import br.ufrn.caze.holterci.collectors.impl.codecov.CoverageCodeCovCollector
 import br.ufrn.caze.holterci.collectors.impl.github.ci.CommitPerDayGitHubCollector
 import br.ufrn.caze.holterci.collectors.impl.github.ci.NClosedIssuesErrorGitHubCollector
 import br.ufrn.caze.holterci.collectors.impl.github.ci.NClosedPullRequestsGitHubCollector
+import br.ufrn.caze.holterci.collectors.impl.github.dora.ChangeFailureRateByIssueGithubCollector
 import br.ufrn.caze.holterci.collectors.impl.github.dora.DeploymentFrequencyGitHubCollector
 import br.ufrn.caze.holterci.collectors.impl.github.dora.LeadTimeForChangesGitHubCollector
+import br.ufrn.caze.holterci.collectors.impl.github.dora.MeanTimetoRecoverByIssueGithubCollector
+import br.ufrn.caze.holterci.collectors.impl.github.dora.ReworkRateGithubByReleaseCollector
 import br.ufrn.caze.holterci.collectors.impl.github.repository.ApprovedPullRequestsPerDeveloperGitHubCollector
 import br.ufrn.caze.holterci.collectors.impl.github.repository.CommitPerDeveloperGitHubCollector
 import br.ufrn.caze.holterci.collectors.impl.gitlab.ci.*
@@ -42,6 +45,7 @@ import br.ufrn.caze.holterci.collectors.impl.gitlab.dora.ChangeFailureRateByIssu
 import br.ufrn.caze.holterci.collectors.impl.gitlab.dora.DeploymentFrequencyByTagGitlabCollector
 import br.ufrn.caze.holterci.collectors.impl.gitlab.dora.LeadTimeForChangesGitlabCollector
 import br.ufrn.caze.holterci.collectors.impl.gitlab.dora.MeanTimetoRecoverByIssueGitlabCollector
+import br.ufrn.caze.holterci.collectors.impl.gitlab.dora.ReworkRateByTagGitlabCollector
 import br.ufrn.caze.holterci.collectors.impl.gitlab.operation.CPUUsegeBuildGitlabCollector
 import br.ufrn.caze.holterci.collectors.impl.gitlab.performance.*
 import br.ufrn.caze.holterci.collectors.impl.gitlab.repository.ApprovedMergeRequestsPerDeveloperGitlabCollector
@@ -74,9 +78,15 @@ class CollectorFactory {
     lateinit var nClosedIssuesErrorGitHubCollector : NClosedIssuesErrorGitHubCollector
     // DORA Metrics
     @Autowired
+    lateinit var changeFailureRateByIssueGithubCollector : ChangeFailureRateByIssueGithubCollector
+    @Autowired
     lateinit var deploymentFrequencyGitHubCollector : DeploymentFrequencyGitHubCollector
     @Autowired
     lateinit var leadTimeForChangesGitHubCollector : LeadTimeForChangesGitHubCollector
+    @Autowired
+    lateinit var meanTimetoRecoverByIssueGithubCollector: MeanTimetoRecoverByIssueGithubCollector
+    @Autowired
+    lateinit var reworkRateGithubByReleaseCollector: ReworkRateGithubByReleaseCollector
     // REPOSITORY Metrics
     @Autowired
     lateinit var commitPerDeveloperGitHubCollector: CommitPerDeveloperGitHubCollector
@@ -136,7 +146,8 @@ class CollectorFactory {
     lateinit var meanTimetoRecoverByIssueGitlabCollector : MeanTimetoRecoverByIssueGitlabCollector
     @Autowired
     lateinit var changeFailureRateByIssueGitlabCollector : ChangeFailureRateByIssueGitlabCollector
-
+    @Autowired
+    lateinit var reworkRateByTagGitlabCollector: ReworkRateByTagGitlabCollector
 
     /******************* CODECOV *******************/
     @Autowired
@@ -180,18 +191,17 @@ class CollectorFactory {
             collectors.add(nClosedIssuesErrorGitHubCollector)
 
             // dora
+            collectors.add(changeFailureRateByIssueGithubCollector)
             collectors.add(deploymentFrequencyGitHubCollector)
             collectors.add(leadTimeForChangesGitHubCollector)
+            collectors.add(meanTimetoRecoverByIssueGithubCollector)
+            collectors.add(reworkRateGithubByReleaseCollector)
 
             //Repository
             collectors.add(commitPerDeveloperGitHubCollector)
             collectors.add(approvedPullRequestsPerDeveloperGitHubCollector)
 
-
-            /******************* GITLAB *******************/
-
-            // ci
-            collectors.add(commitPerDayGitLabCollector)
+            // ... existing code ...
             collectors.add(buildDurationGitlabCollector)
             collectors.add(buildActivityGitlabCollector)
             collectors.add(buildHealthGitlabCollector)
@@ -215,7 +225,7 @@ class CollectorFactory {
             collectors.add(leadTimeForChangesGitlabCollector)
             collectors.add(meanTimetoRecoverByIssueGitlabCollector)
             collectors.add(changeFailureRateByIssueGitlabCollector)
-
+            collectors.add(reworkRateByTagGitlabCollector)
 
             // operation
             collectors.add(cpuUsegeBuildGitlabCollector)

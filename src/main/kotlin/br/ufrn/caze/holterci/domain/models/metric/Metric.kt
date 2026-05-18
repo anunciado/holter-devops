@@ -68,7 +68,7 @@ enum class Metric(val id: Int, val denomination: String, var metricTeam : Metric
     LEAD_TIME_FOR_CHANGES(32,   "Lead Time for Changes", MetricTeam.DEV, MetricStage.CD, MetricCategory.PRODUCTIVITY,   false, false, "days","Captures the time between a code change commit and its deployable state", " Mean ( merge_request <in_prodution_branch>.merged_at - commit.created_at  ) "),
     MEAN_TIME_TO_RECOVERY(33,   "Mean Time to Recovery", MetricTeam.DEV, MetricStage.CD, MetricCategory.RESILIENCE,     false, false, "days","Measures the time between a system failure and full recovery.",           " Mean ( bug_issue_closing_date - bug_issues_opening_date)   / COUNT deploys   "),
     CHANGE_FAILURE_RATE  (34,   "Change Failure Rate", MetricTeam.DEV, MetricStage.CD, MetricCategory.RESILIENCE,     false, true,  "%","This metric captures the percentage of changes that were made to a code that then resulted in incidents, rollbacks, or any type of production failure.", " ( ( COUNT bug_issues / COUNT issues ) / COUNT deploys ) * 100  "),
-
+    REWORK_RATE          (35,   "Rework Rate", MetricTeam.DEV, MetricStage.CD, MetricCategory.RESILIENCE,     false, true,  "%","This metric captures the percentage of changes that were made to a code that then resulted in incidents, rollbacks, or any type of production failure.", " ( ( COUNT bug_issues / COUNT issues ) / COUNT deploys ) * 100  "),
 
 
 

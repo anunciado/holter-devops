@@ -101,6 +101,9 @@ class ProjectService
         if(configuration.mainRepository.issuesErrosLabels != null) {
             configuration.mainRepository.issuesErrosLabels = configuration.mainRepository.issuesErrosLabels!!.replace(" ", "")
         }
+        if(configuration.mainRepository.tagsReworkLabels != null) {
+            configuration.mainRepository.tagsReworkLabels = configuration.mainRepository.tagsReworkLabels!!.replace(" ", "")
+        }
         return projectRepository.saveConfiguration(configuration)
     }
 

@@ -16,4 +16,5 @@ data class MainRepositoryDto(
     var produtionBranch: String,
     @get:NotBlank
     var issuesErrosLabels: String? = "",
-    )
+    var tagsReworkLabels: String? = "",
+)

@@ -46,6 +46,12 @@ class MainRepository {
     @Column(name = "issues_erros_labels", nullable = true)
     var issuesErrosLabels: String? = ""
 
+    /**
+     * List of patterns separated by comma that identify rework/unplanned deployments in tag names.
+     * These patterns are commonly used to indicate hotfixes, patches, or urgent fixes.
+     */
+    @Column(name = "tags_rework_labels", nullable = true)
+    var tagsReworkLabels: String? = ""
 
     constructor(){
     }
