@@ -50,6 +50,8 @@ This tool is part of a doctoral thesis and is still under development Therefore,
 
 - **CHANGE FAILURE RATE**: This metric captures the percentage of changes that were made to a code that then resulted in incidents, rollbacks, or any type of production failure. ```( ( COUNT bug_issues / COUNT issues ) / COUNT deploys ) * 100 ```
 
+- **REWORK RATE**: This metric captures the percentage of unplanned deployments (hotfixes, patches, urgent fixes) relative to the total deployments in a given period. Tags with patterns like "hotfix", "patch", "fix", "urgent", "emergency", or "critical" are considered rework deployments. ```( COUNT unplanned_deployments / COUNT total_deployments ) * 100 ```
+
 
 ##### OPERATION
 

@@ -76,7 +76,7 @@ import java.util.*
  */
 @Component
 class ReworkRateByTagGitlabCollector
-    : Collector(UUID.fromString("a1b2c3d4-e5f6-7890-abcd-ef1234567890"), Metric.REWORK_RATE, "Rework Rate Calculator at GitLab", MetricRepository.GITLAB) {
+    : Collector(UUID.fromString("a1b2c3d4-e5f6-7890-abcd-ef1234567890"), Metric.REWORK_RATE, "Rework Rate by Tag at Gitlab", MetricRepository.GITLAB) {
 
     companion object {
         private const val PERCENTAGE_SCALE = 2

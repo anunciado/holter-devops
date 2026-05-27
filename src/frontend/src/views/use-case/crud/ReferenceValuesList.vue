@@ -23,7 +23,10 @@
         <a class="text-primary"
           href="https://cloud.google.com/blog/products/devops-sre/dora-2022-accelerate-state-of-devops-report-now-out"
           target="_blank">DORA 2022 Accelerate State of DevOps Report</a>.
-      </p>
+            The <a class="text-primary"
+              href="https://cloud.google.com/blog/products/devops-sre/announcing-the-2024-dora-report"
+              target="_blank">DORA 2024 report</a> introduces Rework Rate as an additional software delivery stability metric.
+          </p>
       <table class="mt-4">
         <thead>
           <tr>
@@ -68,6 +71,13 @@
             <td style="padding: 0.4rem;"><b>≤ 15%</b></td>
             <td style="padding: 0.4rem;"><b>16% - 30%</b></td>
             <td style="padding: 0.4rem;"><b>46% - 60%</b></td>
+          </tr>
+          <tr>
+            <td style="padding: 0.4rem;">Rework rate</td>
+            <td style="padding: 0.4rem;">The percentage of deployments that were unplanned and required to fix user-visible bugs</td>
+            <td style="padding: 0.4rem;"><b>≤ 5%</b></td>
+            <td style="padding: 0.4rem;"><b>6% - 15%</b></td>
+            <td style="padding: 0.4rem;"><b>> 15%</b></td>
           </tr>
         </tbody>
       </table>

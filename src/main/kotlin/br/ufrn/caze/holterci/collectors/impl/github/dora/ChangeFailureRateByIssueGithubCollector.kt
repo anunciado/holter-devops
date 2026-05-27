@@ -99,7 +99,7 @@ class ChangeFailureRateByIssueGithubCollector
         }
         
         // Filter issues closed in the specific period using GitHub utility methods
-        var issuesInPeriod = gitHubUtils.getIssuesClosedInPeriod(issuesCache, period.init, period.end)
+        var issuesInPeriod = gitHubUtils.getIssueClosedInPeriod(issuesCache, period.init, period.end)
         var errorIssuesInPeriod = mutableListOf<GitHubIssueInfo>()
         
         for (issue in issuesInPeriod){

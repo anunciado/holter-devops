@@ -72,12 +72,27 @@
                   <InputText id="issueErrosLabels" type="text" v-bind="field" placeholder="error, bug, issue, mistake"
                   :disabled="isReadOnly" :invalid="errors.length > 0" />
                   <Message severity="error" icon="fa-solid fa-circle-exclamation" v-if="errors.length > 0">{{ errors[0]
-                    }}</Message>
-                </VField>
-              </div>
+                        }}</Message>
+                    </VField>
+                  </div>
 
-              <!-- Production Branch -->
-              <div class="flex flex-col gap-2">
+                  <!-- Tags Rework Labels -->
+                  <div class="flex flex-col gap-2">
+                    <div class="flex items-center gap-2 justify-between">
+                      <label for="tagsReworkLabels">Tags Rework Labels:</label>
+                      <Ajuda texto="Patterns that identify rework/unplanned deployments in tag names (e.g., hotfix, patch, urgent)." />
+                    </div>
+                    <VField name="tagsReworkLabels" type="text" v-model="config.tagsReworkLabels"
+                      v-slot="{ field, errors }">
+                      <InputText id="tagsReworkLabels" type="text" v-bind="field" placeholder="hotfix, patch, urgent, fix"
+                      :disabled="isReadOnly" :invalid="errors.length > 0" />
+                      <Message severity="error" icon="fa-solid fa-circle-exclamation" v-if="errors.length > 0">{{ errors[0]
+                        }}</Message>
+                    </VField>
+                  </div>
+
+                  <!-- Production Branch -->
+                  <div class="flex flex-col gap-2">
                 <div class="flex items-center gap-2 justify-between">
                   <label for="prodBranch">Production Branch:</label>
                   <Ajuda texto="The name of the branch that contains the production code." />

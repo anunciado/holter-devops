@@ -57,7 +57,7 @@ import java.util.*
  */
 @Component
 class ReworkRateGithubByReleaseCollector
-    : Collector(UUID.fromString("8aecc733-ebb7-427d-b41a-31daff8ce616"), Metric.REWORK_RATE, "Rework Rate at Github", MetricRepository.GITHUB){
+    : Collector(UUID.fromString("8aecc733-ebb7-427d-b41a-31daff8ce616"), Metric.REWORK_RATE, "Rework Rate by Tag at Github", MetricRepository.GITHUB){
 
     companion object {
         private const val PERCENTAGE_SCALE = 2
